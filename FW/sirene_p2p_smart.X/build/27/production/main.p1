@@ -133,6 +133,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "372
 [; ;C:/Program Files/Microchip/MPLABX/v6.30/packs/Microchip/PIC12-16F1xxx_DFP/1.8.254/xc8\pic\include\proc/pic16f1827.h: 372: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
 [v _INTCONbits `VS30 ~T0 @X0 0 e@11 ]
+"433
+[; ;C:/Program Files/Microchip/MPLABX/v6.30/packs/Microchip/PIC12-16F1xxx_DFP/1.8.254/xc8\pic\include\proc/pic16f1827.h: 433:     struct {
+[s S34 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S34 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+"432
+[; ;C:/Program Files/Microchip/MPLABX/v6.30/packs/Microchip/PIC12-16F1xxx_DFP/1.8.254/xc8\pic\include\proc/pic16f1827.h: 432: typedef union {
+[u S33 `S34 1 ]
+[n S33 . . ]
+"444
+[; ;C:/Program Files/Microchip/MPLABX/v6.30/packs/Microchip/PIC12-16F1xxx_DFP/1.8.254/xc8\pic\include\proc/pic16f1827.h: 444: extern volatile PORTAbits_t PORTAbits __attribute__((address(0x00C)));
+[v _PORTAbits `VS33 ~T0 @X0 0 e@12 ]
 "31 main.c
 [p n 520 ]
 "52 C:/Program Files/Microchip/MPLABX/v6.30/packs/Microchip/PIC12-16F1xxx_DFP/1.8.254/xc8\pic\include\proc/pic16f1827.h
@@ -2017,11 +2028,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 560 ]
 "407
-[; ;main.c: 407:             passagem++;
+[; ;main.c: 407:             if (PORTAbits.RA4==0) passagem++;
+[e $ ! == -> . . _PORTAbits 0 4 `i -> 0 `i 562  ]
 [e ++ _passagem -> -> -> 1 `i `l `ul ]
+[e :U 562 ]
 "408
 [; ;main.c: 408:             if (passagem>(20*60000))
-[e $ ! > _passagem -> * -> -> 20 `i `l -> 60000 `l `ul 562  ]
+[e $ ! > _passagem -> * -> -> 20 `i `l -> 60000 `l `ul 563  ]
 "409
 [; ;main.c: 409:             {
 {
@@ -2037,593 +2050,593 @@ Version 4.0 HI-TECH Software Intermediate Code
 "413
 [; ;main.c: 413:             }
 }
-[e :U 562 ]
+[e :U 563 ]
 "414
 [; ;main.c: 414:         }
 }
-[e $U 563  ]
-"416
-[; ;main.c: 416:         else
+[e $U 564  ]
+"415
+[; ;main.c: 415:         else
 [e :U 558 ]
-"417
-[; ;main.c: 417:             do { LATAbits.LATA7 = 0; } while(0);
-[e :U 566 ]
+"416
+[; ;main.c: 416:             do { LATAbits.LATA7 = 0; } while(0);
+[e :U 567 ]
 {
 [e = . . _LATAbits 0 7 -> -> 0 `i `uc ]
 }
-[e :U 565 ]
-[e :U 563 ]
+[e :U 566 ]
+[e :U 564 ]
+"419
+[; ;main.c: 419:         if (fRTX==1)
+[e $ ! == -> _fRTX `i -> 1 `i 568  ]
+"420
+[; ;main.c: 420:         {
+{
 "421
-[; ;main.c: 421:         if (fRTX==1)
-[e $ ! == -> _fRTX `i -> 1 `i 567  ]
+[; ;main.c: 421:             if (tempoRTX < 65000)
+[e $ ! < -> _tempoRTX `l -> 65000 `l 569  ]
 "422
-[; ;main.c: 422:         {
-{
-"423
-[; ;main.c: 423:             if (tempoRTX < 65000)
-[e $ ! < -> _tempoRTX `l -> 65000 `l 568  ]
-"424
-[; ;main.c: 424:                 tempoRTX++;
+[; ;main.c: 422:                 tempoRTX++;
 [e ++ _tempoRTX -> -> 1 `i `us ]
-[e :U 568 ]
-"425
-[; ;main.c: 425:             if (tempoRTX >= TempoDeReplicacao)
-[e $ ! >= -> _tempoRTX `ui -> _TempoDeReplicacao `ui 569  ]
-"426
-[; ;main.c: 426:             {
+[e :U 569 ]
+"423
+[; ;main.c: 423:             if (tempoRTX >= TempoDeReplicacao)
+[e $ ! >= -> _tempoRTX `ui -> _TempoDeReplicacao `ui 570  ]
+"424
+[; ;main.c: 424:             {
 {
-"427
-[; ;main.c: 427:                 fRTX=0;
+"425
+[; ;main.c: 425:                 fRTX=0;
 [e = _fRTX -> -> 0 `i `a ]
-"428
-[; ;main.c: 428:                 do { LATAbits.LATA6 = 0; } while(0);
-[e :U 572 ]
+"426
+[; ;main.c: 426:                 do { LATAbits.LATA6 = 0; } while(0);
+[e :U 573 ]
 {
 [e = . . _LATAbits 0 6 -> -> 0 `i `uc ]
 }
-[e :U 571 ]
-"429
-[; ;main.c: 429:                 TX_Lora();
+[e :U 572 ]
+"427
+[; ;main.c: 427:                 TX_Lora();
 [e ( _TX_Lora ..  ]
+"428
+[; ;main.c: 428:                 __nop();
+[e ( ___nop ..  ]
 "430
-[; ;main.c: 430:                 __nop();
+[; ;main.c: 430:                 SM_CFOFF();
+[e ( _SM_CFOFF ..  ]
+"431
+[; ;main.c: 431:                 __nop();
 [e ( ___nop ..  ]
 "432
 [; ;main.c: 432:                 SM_CFOFF();
 [e ( _SM_CFOFF ..  ]
 "433
-[; ;main.c: 433:                 __nop();
-[e ( ___nop ..  ]
+[; ;main.c: 433:                 SM_CONFIGRADIO(22);
+[e ( _SM_CONFIGRADIO (1 -> -> 22 `i `uc ]
 "434
-[; ;main.c: 434:                 SM_CFOFF();
-[e ( _SM_CFOFF ..  ]
+[; ;main.c: 434:                 SM_MODORX(22);
+[e ( _SM_MODORX (1 -> -> 22 `i `uc ]
 "435
-[; ;main.c: 435:                 SM_CONFIGRADIO(22);
-[e ( _SM_CONFIGRADIO (1 -> -> 22 `i `uc ]
-"436
-[; ;main.c: 436:                 SM_MODORX(22);
-[e ( _SM_MODORX (1 -> -> 22 `i `uc ]
-"437
-[; ;main.c: 437:                 SM_CFOFF();
+[; ;main.c: 435:                 SM_CFOFF();
 [e ( _SM_CFOFF ..  ]
-"438
-[; ;main.c: 438:                 SM_CONFIGRADIO(22);
+"436
+[; ;main.c: 436:                 SM_CONFIGRADIO(22);
 [e ( _SM_CONFIGRADIO (1 -> -> 22 `i `uc ]
-"439
-[; ;main.c: 439:                 SM_MODORX(22);
+"437
+[; ;main.c: 437:                 SM_MODORX(22);
 [e ( _SM_MODORX (1 -> -> 22 `i `uc ]
+"438
+[; ;main.c: 438:                 __nop();
+[e ( ___nop ..  ]
+"439
+[; ;main.c: 439:                 indice=0;
+[e = _indice -> -> 0 `i `uc ]
 "440
-[; ;main.c: 440:                 __nop();
-[e ( ___nop ..  ]
-"441
-[; ;main.c: 441:                 indice=0;
-[e = _indice -> -> 0 `i `uc ]
-"442
-[; ;main.c: 442:                 tempoRTX=0;
+[; ;main.c: 440:                 tempoRTX=0;
 [e = _tempoRTX -> -> 0 `i `us ]
-"443
-[; ;main.c: 443:                 cicloLED=13000;
+"441
+[; ;main.c: 441:                 cicloLED=13000;
 [e = _cicloLED -> -> 13000 `i `us ]
-"444
-[; ;main.c: 444:             }
+"442
+[; ;main.c: 442:             }
 }
-[e :U 569 ]
-"445
-[; ;main.c: 445:         }
+[e :U 570 ]
+"443
+[; ;main.c: 443:         }
 }
-[e :U 567 ]
+[e :U 568 ]
+"446
+[; ;main.c: 446:         if (fRetLora==99)
+[e $ ! == -> _fRetLora `i -> 99 `i 574  ]
+"447
+[; ;main.c: 447:         {
+{
 "448
-[; ;main.c: 448:         if (fRetLora==99)
-[e $ ! == -> _fRetLora `i -> 99 `i 573  ]
+[; ;main.c: 448:             __nop();
+[e ( ___nop ..  ]
 "449
-[; ;main.c: 449:         {
-{
+[; ;main.c: 449:             fRetLora=0;
+[e = _fRetLora -> -> 0 `i `uc ]
 "450
-[; ;main.c: 450:             __nop();
-[e ( ___nop ..  ]
+[; ;main.c: 450:         }
+}
+[e :U 574 ]
 "451
-[; ;main.c: 451:             fRetLora=0;
-[e = _fRetLora -> -> 0 `i `uc ]
+[; ;main.c: 451:         if (fRetLora==1)
+[e $ ! == -> _fRetLora `i -> 1 `i 575  ]
 "452
-[; ;main.c: 452:         }
-}
-[e :U 573 ]
+[; ;main.c: 452:         {
+{
 "453
-[; ;main.c: 453:         if (fRetLora==1)
-[e $ ! == -> _fRetLora `i -> 1 `i 574  ]
-"454
-[; ;main.c: 454:         {
-{
-"455
-[; ;main.c: 455:             fRetLora=0;
+[; ;main.c: 453:             fRetLora=0;
 [e = _fRetLora -> -> 0 `i `uc ]
-"456
-[; ;main.c: 456:             fComandoSirene=0;
+"454
+[; ;main.c: 454:             fComandoSirene=0;
 [e = _fComandoSirene -> -> 0 `i `uc ]
-"457
-[; ;main.c: 457:             indice=0;
+"455
+[; ;main.c: 455:             indice=0;
 [e = _indice -> -> 0 `i `uc ]
-"459
-[; ;main.c: 459:             ENDERECO = 9060;
+"457
+[; ;main.c: 457:             ENDERECO = 9060;
 [e = _ENDERECO -> -> 9060 `i `us ]
+"459
+[; ;main.c: 459:             __nop();
+[e ( ___nop ..  ]
 "461
-[; ;main.c: 461:             __nop();
-[e ( ___nop ..  ]
-"463
-[; ;main.c: 463:             endereco_M = (uint8_t)(ENDERECO/1000);
+[; ;main.c: 461:             endereco_M = (uint8_t)(ENDERECO/1000);
 [e = _endereco_M -> / -> _ENDERECO `ui -> -> 1000 `i `ui `uc ]
-"464
-[; ;main.c: 464:             temp16 = ENDERECO%1000;
+"462
+[; ;main.c: 462:             temp16 = ENDERECO%1000;
 [e = _temp16 -> % -> _ENDERECO `ui -> -> 1000 `i `ui `us ]
-"465
-[; ;main.c: 465:             endereco_C = (uint8_t)(temp16/100);
+"463
+[; ;main.c: 463:             endereco_C = (uint8_t)(temp16/100);
 [e = _endereco_C -> / -> _temp16 `ui -> -> 100 `i `ui `uc ]
-"466
-[; ;main.c: 466:             temp16 = temp16%100;
+"464
+[; ;main.c: 464:             temp16 = temp16%100;
 [e = _temp16 -> % -> _temp16 `ui -> -> 100 `i `ui `us ]
-"467
-[; ;main.c: 467:             endereco_D = (uint8_t)(temp16/10);
+"465
+[; ;main.c: 465:             endereco_D = (uint8_t)(temp16/10);
 [e = _endereco_D -> / -> _temp16 `ui -> -> 10 `i `ui `uc ]
-"468
-[; ;main.c: 468:             endereco_U = (uint8_t)(temp16%10);
+"466
+[; ;main.c: 466:             endereco_U = (uint8_t)(temp16%10);
 [e = _endereco_U -> % -> _temp16 `ui -> -> 10 `i `ui `uc ]
-"470
-[; ;main.c: 470:             OFFSET = ENDERECO-9000;
+"468
+[; ;main.c: 468:             OFFSET = ENDERECO-9000;
 [e = _OFFSET -> - -> _ENDERECO `ui -> -> 9000 `i `ui `us ]
+"469
+[; ;main.c: 469:             __nop();
+[e ( ___nop ..  ]
+"470
+[; ;main.c: 470:             switch (endereco_U)
+[e $U 577  ]
 "471
-[; ;main.c: 471:             __nop();
-[e ( ___nop ..  ]
+[; ;main.c: 471:             {
+{
 "472
-[; ;main.c: 472:             switch (endereco_U)
-[e $U 576  ]
-"473
-[; ;main.c: 473:             {
-{
-"474
-[; ;main.c: 474:                 case 1:
-[e :U 577 ]
-"475
-[; ;main.c: 475:                 case 6:
+[; ;main.c: 472:                 case 1:
 [e :U 578 ]
-"476
-[; ;main.c: 476:                     TempoDeReplicacao = 3;
-[e = _TempoDeReplicacao -> -> 3 `i `us ]
-"477
-[; ;main.c: 477:                     break;
-[e $U 575  ]
-"478
-[; ;main.c: 478:                 case 2:
+"473
+[; ;main.c: 473:                 case 6:
 [e :U 579 ]
-"479
-[; ;main.c: 479:                 case 7:
+"474
+[; ;main.c: 474:                     TempoDeReplicacao = 3;
+[e = _TempoDeReplicacao -> -> 3 `i `us ]
+"475
+[; ;main.c: 475:                     break;
+[e $U 576  ]
+"476
+[; ;main.c: 476:                 case 2:
 [e :U 580 ]
-"480
-[; ;main.c: 480:                     TempoDeReplicacao = 5;
-[e = _TempoDeReplicacao -> -> 5 `i `us ]
-"481
-[; ;main.c: 481:                     break;
-[e $U 575  ]
-"482
-[; ;main.c: 482:                 case 3:
+"477
+[; ;main.c: 477:                 case 7:
 [e :U 581 ]
-"483
-[; ;main.c: 483:                 case 8:
+"478
+[; ;main.c: 478:                     TempoDeReplicacao = 5;
+[e = _TempoDeReplicacao -> -> 5 `i `us ]
+"479
+[; ;main.c: 479:                     break;
+[e $U 576  ]
+"480
+[; ;main.c: 480:                 case 3:
 [e :U 582 ]
-"484
-[; ;main.c: 484:                     TempoDeReplicacao = 7;
-[e = _TempoDeReplicacao -> -> 7 `i `us ]
-"485
-[; ;main.c: 485:                     break;
-[e $U 575  ]
-"486
-[; ;main.c: 486:                 case 4:
+"481
+[; ;main.c: 481:                 case 8:
 [e :U 583 ]
-"487
-[; ;main.c: 487:                 case 9:
+"482
+[; ;main.c: 482:                     TempoDeReplicacao = 7;
+[e = _TempoDeReplicacao -> -> 7 `i `us ]
+"483
+[; ;main.c: 483:                     break;
+[e $U 576  ]
+"484
+[; ;main.c: 484:                 case 4:
 [e :U 584 ]
-"488
-[; ;main.c: 488:                     TempoDeReplicacao = 9;
-[e = _TempoDeReplicacao -> -> 9 `i `us ]
-"489
-[; ;main.c: 489:                     break;
-[e $U 575  ]
-"490
-[; ;main.c: 490:                 case 5:
+"485
+[; ;main.c: 485:                 case 9:
 [e :U 585 ]
-"491
-[; ;main.c: 491:                 case 0:
+"486
+[; ;main.c: 486:                     TempoDeReplicacao = 9;
+[e = _TempoDeReplicacao -> -> 9 `i `us ]
+"487
+[; ;main.c: 487:                     break;
+[e $U 576  ]
+"488
+[; ;main.c: 488:                 case 5:
 [e :U 586 ]
-"492
-[; ;main.c: 492:                     TempoDeReplicacao = 11;
-[e = _TempoDeReplicacao -> -> 11 `i `us ]
-"493
-[; ;main.c: 493:                     break;
-[e $U 575  ]
-"494
-[; ;main.c: 494:                 default:
+"489
+[; ;main.c: 489:                 case 0:
 [e :U 587 ]
-"495
-[; ;main.c: 495:                     TempoDeReplicacao = 4;
-[e = _TempoDeReplicacao -> -> 4 `i `us ]
-"496
-[; ;main.c: 496:                     break;
-[e $U 575  ]
-"497
-[; ;main.c: 497:             }
-}
-[e $U 575  ]
-[e :U 576 ]
-[e [\ _endereco_U , $ -> 1 `i 577
- , $ -> 6 `i 578
- , $ -> 2 `i 579
- , $ -> 7 `i 580
- , $ -> 3 `i 581
- , $ -> 8 `i 582
- , $ -> 4 `i 583
- , $ -> 9 `i 584
- , $ -> 5 `i 585
- , $ -> 0 `i 586
- 587 ]
-[e :U 575 ]
-"498
-[; ;main.c: 498:             TempoDeReplicacao *= 1000;
-[e =* _TempoDeReplicacao -> -> 1000 `i `us ]
-"500
-[; ;main.c: 500:             ENDERECO -= OFFSET;
-[e =- _ENDERECO -> _OFFSET `us ]
-"501
-[; ;main.c: 501:             endereco.end16 = ENDERECO;
-[e = . _endereco 0 _ENDERECO ]
-"502
-[; ;main.c: 502:             offset.end16 = OFFSET;
-[e = . _offset 0 _OFFSET ]
-"503
-[; ;main.c: 503:             __nop();
-[e ( ___nop ..  ]
-"505
-[; ;main.c: 505:             M_EnderecoRecebido = DadosLora[4]-48;
-[e = _M_EnderecoRecebido -> - -> *U + &U _DadosLora * -> -> -> 4 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `i -> 48 `i `uc ]
-"506
-[; ;main.c: 506:             C_EnderecoRecebido = DadosLora[5]-48;
-[e = _C_EnderecoRecebido -> - -> *U + &U _DadosLora * -> -> -> 5 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `i -> 48 `i `uc ]
-"507
-[; ;main.c: 507:             D_EnderecoRecebido = DadosLora[6]-48;
-[e = _D_EnderecoRecebido -> - -> *U + &U _DadosLora * -> -> -> 6 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `i -> 48 `i `uc ]
-"508
-[; ;main.c: 508:             U_EnderecoRecebido = DadosLora[7]-48;
-[e = _U_EnderecoRecebido -> - -> *U + &U _DadosLora * -> -> -> 7 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `i -> 48 `i `uc ]
-"509
-[; ;main.c: 509:             __nop();
-[e ( ___nop ..  ]
-"510
-[; ;main.c: 510:             enderecoRecebido = M_EnderecoRecebido*1000;
-[e = _enderecoRecebido -> * -> _M_EnderecoRecebido `i -> 1000 `i `us ]
-"511
-[; ;main.c: 511:             enderecoRecebido += C_EnderecoRecebido*100;
-[e =+ _enderecoRecebido -> * -> _C_EnderecoRecebido `i -> 100 `i `us ]
-"512
-[; ;main.c: 512:             enderecoRecebido += D_EnderecoRecebido*10;
-[e =+ _enderecoRecebido -> * -> _D_EnderecoRecebido `i -> 10 `i `us ]
-"513
-[; ;main.c: 513:             enderecoRecebido += U_EnderecoRecebido;
-[e =+ _enderecoRecebido -> _U_EnderecoRecebido `us ]
-"514
-[; ;main.c: 514:             __nop();
-[e ( ___nop ..  ]
-"516
-[; ;main.c: 516:             pacoteTRX[ 0] = DadosLora[ 2];
-[e = *U + &U _pacoteTRX * -> -> -> 0 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 2 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
-"517
-[; ;main.c: 517:             pacoteTRX[ 1] = DadosLora[ 3];
-[e = *U + &U _pacoteTRX * -> -> -> 1 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 3 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
-"518
-[; ;main.c: 518:             pacoteTRX[ 2] = DadosLora[ 4];
-[e = *U + &U _pacoteTRX * -> -> -> 2 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 4 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
-"519
-[; ;main.c: 519:             pacoteTRX[ 3] = DadosLora[ 5];
-[e = *U + &U _pacoteTRX * -> -> -> 3 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 5 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
-"520
-[; ;main.c: 520:             pacoteTRX[ 4] = DadosLora[ 6];
-[e = *U + &U _pacoteTRX * -> -> -> 4 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 6 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
-"521
-[; ;main.c: 521:             pacoteTRX[ 5] = DadosLora[ 7];
-[e = *U + &U _pacoteTRX * -> -> -> 5 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 7 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
-"522
-[; ;main.c: 522:             pacoteTRX[ 6] = DadosLora[ 8];
-[e = *U + &U _pacoteTRX * -> -> -> 6 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 8 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
-"523
-[; ;main.c: 523:             pacoteTRX[ 7] = DadosLora[ 9];
-[e = *U + &U _pacoteTRX * -> -> -> 7 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 9 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
-"524
-[; ;main.c: 524:             pacoteTRX[ 8] = DadosLora[10];
-[e = *U + &U _pacoteTRX * -> -> -> 8 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 10 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
-"525
-[; ;main.c: 525:             pacoteTRX[ 9] = DadosLora[11];
-[e = *U + &U _pacoteTRX * -> -> -> 9 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 11 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
-"526
-[; ;main.c: 526:             pacoteTRX[10] = DadosLora[12];
-[e = *U + &U _pacoteTRX * -> -> -> 10 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 12 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
-"527
-[; ;main.c: 527:             pacoteTRX[11] = DadosLora[13];
-[e = *U + &U _pacoteTRX * -> -> -> 11 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 13 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
-"528
-[; ;main.c: 528:             pacoteTRX[12] = DadosLora[14];
-[e = *U + &U _pacoteTRX * -> -> -> 12 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 14 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
-"529
-[; ;main.c: 529:             pacoteTRX[13] = 'F';
-[e = *U + &U _pacoteTRX * -> -> -> 13 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux -> -> 70 `ui `uc ]
-"531
-[; ;main.c: 531:             if (DadosLora[15]=='F')
-[e $ ! == -> *U + &U _DadosLora * -> -> -> 15 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 70 `ui 588  ]
-"532
-[; ;main.c: 532:             {
-{
-"534
-[; ;main.c: 534:                 do { LATAbits.LATA6 = 1; } while(0); _delay((unsigned long)((50)*(16000000/4000.0))); do { LATAbits.LATA6 = 0; } while(0); _delay((unsigned long)((50)*(16000000/4000.0)));
-[e :U 591 ]
-{
-[e = . . _LATAbits 0 6 -> -> 1 `i `uc ]
-}
-[e :U 590 ]
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-[e :U 594 ]
-{
-[e = . . _LATAbits 0 6 -> -> 0 `i `uc ]
-}
-[e :U 593 ]
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"535
-[; ;main.c: 535:                 do { LATAbits.LATA6 = 1; } while(0); _delay((unsigned long)((50)*(16000000/4000.0))); do { LATAbits.LATA6 = 0; } while(0);
-[e :U 597 ]
-{
-[e = . . _LATAbits 0 6 -> -> 1 `i `uc ]
-}
-[e :U 596 ]
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-[e :U 600 ]
-{
-[e = . . _LATAbits 0 6 -> -> 0 `i `uc ]
-}
-[e :U 599 ]
-"537
-[; ;main.c: 537:             }
-}
+"490
+[; ;main.c: 490:                     TempoDeReplicacao = 11;
+[e = _TempoDeReplicacao -> -> 11 `i `us ]
+"491
+[; ;main.c: 491:                     break;
+[e $U 576  ]
+"492
+[; ;main.c: 492:                 default:
 [e :U 588 ]
-"538
-[; ;main.c: 538:             __nop();
+"493
+[; ;main.c: 493:                     TempoDeReplicacao = 4;
+[e = _TempoDeReplicacao -> -> 4 `i `us ]
+"494
+[; ;main.c: 494:                     break;
+[e $U 576  ]
+"495
+[; ;main.c: 495:             }
+}
+[e $U 576  ]
+[e :U 577 ]
+[e [\ _endereco_U , $ -> 1 `i 578
+ , $ -> 6 `i 579
+ , $ -> 2 `i 580
+ , $ -> 7 `i 581
+ , $ -> 3 `i 582
+ , $ -> 8 `i 583
+ , $ -> 4 `i 584
+ , $ -> 9 `i 585
+ , $ -> 5 `i 586
+ , $ -> 0 `i 587
+ 588 ]
+[e :U 576 ]
+"496
+[; ;main.c: 496:             TempoDeReplicacao *= 1000;
+[e =* _TempoDeReplicacao -> -> 1000 `i `us ]
+"498
+[; ;main.c: 498:             ENDERECO -= OFFSET;
+[e =- _ENDERECO -> _OFFSET `us ]
+"499
+[; ;main.c: 499:             endereco.end16 = ENDERECO;
+[e = . _endereco 0 _ENDERECO ]
+"500
+[; ;main.c: 500:             offset.end16 = OFFSET;
+[e = . _offset 0 _OFFSET ]
+"501
+[; ;main.c: 501:             __nop();
 [e ( ___nop ..  ]
-"541
-[; ;main.c: 541:             if ( enderecoRecebido == endereco.end16 )
-[e $ ! == -> _enderecoRecebido `ui -> . _endereco 0 `ui 601  ]
-"542
-[; ;main.c: 542:                 fComandoSirene=1;
-[e = _fComandoSirene -> -> 1 `i `uc ]
+"503
+[; ;main.c: 503:             M_EnderecoRecebido = DadosLora[4]-48;
+[e = _M_EnderecoRecebido -> - -> *U + &U _DadosLora * -> -> -> 4 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `i -> 48 `i `uc ]
+"504
+[; ;main.c: 504:             C_EnderecoRecebido = DadosLora[5]-48;
+[e = _C_EnderecoRecebido -> - -> *U + &U _DadosLora * -> -> -> 5 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `i -> 48 `i `uc ]
+"505
+[; ;main.c: 505:             D_EnderecoRecebido = DadosLora[6]-48;
+[e = _D_EnderecoRecebido -> - -> *U + &U _DadosLora * -> -> -> 6 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `i -> 48 `i `uc ]
+"506
+[; ;main.c: 506:             U_EnderecoRecebido = DadosLora[7]-48;
+[e = _U_EnderecoRecebido -> - -> *U + &U _DadosLora * -> -> -> 7 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `i -> 48 `i `uc ]
+"507
+[; ;main.c: 507:             __nop();
+[e ( ___nop ..  ]
+"508
+[; ;main.c: 508:             enderecoRecebido = M_EnderecoRecebido*1000;
+[e = _enderecoRecebido -> * -> _M_EnderecoRecebido `i -> 1000 `i `us ]
+"509
+[; ;main.c: 509:             enderecoRecebido += C_EnderecoRecebido*100;
+[e =+ _enderecoRecebido -> * -> _C_EnderecoRecebido `i -> 100 `i `us ]
+"510
+[; ;main.c: 510:             enderecoRecebido += D_EnderecoRecebido*10;
+[e =+ _enderecoRecebido -> * -> _D_EnderecoRecebido `i -> 10 `i `us ]
+"511
+[; ;main.c: 511:             enderecoRecebido += U_EnderecoRecebido;
+[e =+ _enderecoRecebido -> _U_EnderecoRecebido `us ]
+"512
+[; ;main.c: 512:             __nop();
+[e ( ___nop ..  ]
+"514
+[; ;main.c: 514:             pacoteTRX[ 0] = DadosLora[ 2];
+[e = *U + &U _pacoteTRX * -> -> -> 0 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 2 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
+"515
+[; ;main.c: 515:             pacoteTRX[ 1] = DadosLora[ 3];
+[e = *U + &U _pacoteTRX * -> -> -> 1 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 3 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
+"516
+[; ;main.c: 516:             pacoteTRX[ 2] = DadosLora[ 4];
+[e = *U + &U _pacoteTRX * -> -> -> 2 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 4 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
+"517
+[; ;main.c: 517:             pacoteTRX[ 3] = DadosLora[ 5];
+[e = *U + &U _pacoteTRX * -> -> -> 3 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 5 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
+"518
+[; ;main.c: 518:             pacoteTRX[ 4] = DadosLora[ 6];
+[e = *U + &U _pacoteTRX * -> -> -> 4 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 6 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
+"519
+[; ;main.c: 519:             pacoteTRX[ 5] = DadosLora[ 7];
+[e = *U + &U _pacoteTRX * -> -> -> 5 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 7 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
+"520
+[; ;main.c: 520:             pacoteTRX[ 6] = DadosLora[ 8];
+[e = *U + &U _pacoteTRX * -> -> -> 6 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 8 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
+"521
+[; ;main.c: 521:             pacoteTRX[ 7] = DadosLora[ 9];
+[e = *U + &U _pacoteTRX * -> -> -> 7 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 9 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
+"522
+[; ;main.c: 522:             pacoteTRX[ 8] = DadosLora[10];
+[e = *U + &U _pacoteTRX * -> -> -> 8 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 10 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
+"523
+[; ;main.c: 523:             pacoteTRX[ 9] = DadosLora[11];
+[e = *U + &U _pacoteTRX * -> -> -> 9 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 11 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
+"524
+[; ;main.c: 524:             pacoteTRX[10] = DadosLora[12];
+[e = *U + &U _pacoteTRX * -> -> -> 10 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 12 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
+"525
+[; ;main.c: 525:             pacoteTRX[11] = DadosLora[13];
+[e = *U + &U _pacoteTRX * -> -> -> 11 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 13 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
+"526
+[; ;main.c: 526:             pacoteTRX[12] = DadosLora[14];
+[e = *U + &U _pacoteTRX * -> -> -> 12 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux *U + &U _DadosLora * -> -> -> 14 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux ]
+"527
+[; ;main.c: 527:             pacoteTRX[13] = 'F';
+[e = *U + &U _pacoteTRX * -> -> -> 13 `i `ui `ux -> -> # *U &U _pacoteTRX `ui `ux -> -> 70 `ui `uc ]
+"529
+[; ;main.c: 529:             if (DadosLora[15]=='F')
+[e $ ! == -> *U + &U _DadosLora * -> -> -> 15 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 70 `ui 589  ]
+"530
+[; ;main.c: 530:             {
+{
+"532
+[; ;main.c: 532:                 do { LATAbits.LATA6 = 1; } while(0); _delay((unsigned long)((50)*(16000000/4000.0))); do { LATAbits.LATA6 = 0; } while(0); _delay((unsigned long)((50)*(16000000/4000.0)));
+[e :U 592 ]
+{
+[e = . . _LATAbits 0 6 -> -> 1 `i `uc ]
+}
+[e :U 591 ]
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+[e :U 595 ]
+{
+[e = . . _LATAbits 0 6 -> -> 0 `i `uc ]
+}
+[e :U 594 ]
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"533
+[; ;main.c: 533:                 do { LATAbits.LATA6 = 1; } while(0); _delay((unsigned long)((50)*(16000000/4000.0))); do { LATAbits.LATA6 = 0; } while(0);
+[e :U 598 ]
+{
+[e = . . _LATAbits 0 6 -> -> 1 `i `uc ]
+}
+[e :U 597 ]
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
 [e :U 601 ]
-"545
-[; ;main.c: 545:             endereco.end16 += offset.end16;
-[e =+ . _endereco 0 -> . _offset 0 `us ]
-"546
-[; ;main.c: 546:             if ( enderecoRecebido == endereco.end16 )
+{
+[e = . . _LATAbits 0 6 -> -> 0 `i `uc ]
+}
+[e :U 600 ]
+"535
+[; ;main.c: 535:             }
+}
+[e :U 589 ]
+"536
+[; ;main.c: 536:             __nop();
+[e ( ___nop ..  ]
+"539
+[; ;main.c: 539:             if ( enderecoRecebido == endereco.end16 )
 [e $ ! == -> _enderecoRecebido `ui -> . _endereco 0 `ui 602  ]
-"547
-[; ;main.c: 547:                 fComandoSirene=1;
+"540
+[; ;main.c: 540:                 fComandoSirene=1;
 [e = _fComandoSirene -> -> 1 `i `uc ]
 [e :U 602 ]
-"549
-[; ;main.c: 549:             if (fComandoSirene)
-[e $ ! != -> _fComandoSirene `i -> 0 `i 603  ]
-"550
-[; ;main.c: 550:             {
+"543
+[; ;main.c: 543:             endereco.end16 += offset.end16;
+[e =+ . _endereco 0 -> . _offset 0 `us ]
+"544
+[; ;main.c: 544:             if ( enderecoRecebido == endereco.end16 )
+[e $ ! == -> _enderecoRecebido `ui -> . _endereco 0 `ui 603  ]
+"545
+[; ;main.c: 545:                 fComandoSirene=1;
+[e = _fComandoSirene -> -> 1 `i `uc ]
+[e :U 603 ]
+"547
+[; ;main.c: 547:             if (fComandoSirene)
+[e $ ! != -> _fComandoSirene `i -> 0 `i 604  ]
+"548
+[; ;main.c: 548:             {
 {
-"551
-[; ;main.c: 551:                 __nop();
+"549
+[; ;main.c: 549:                 __nop();
 [e ( ___nop ..  ]
-"552
-[; ;main.c: 552:                 fComandoSirene=0;
+"550
+[; ;main.c: 550:                 fComandoSirene=0;
 [e = _fComandoSirene -> -> 0 `i `uc ]
-"553
-[; ;main.c: 553:                 passagem=0;
+"551
+[; ;main.c: 551:                 passagem=0;
 [e = _passagem -> -> -> 0 `i `l `ul ]
-"555
-[; ;main.c: 555:                 if ( (DadosLora[ 8] == '1')&&(DadosLora[ 9] == '1')&&
-[e $ ! && && && && && == -> *U + &U _DadosLora * -> -> -> 8 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 49 `ui == -> *U + &U _DadosLora * -> -> -> 9 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 49 `ui == -> *U + &U _DadosLora * -> -> -> 10 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 50 `ui == -> *U + &U _DadosLora * -> -> -> 11 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 50 `ui == -> *U + &U _DadosLora * -> -> -> 12 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 51 `ui == -> *U + &U _DadosLora * -> -> -> 13 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 51 `ui 604  ]
+"553
+[; ;main.c: 553:                 if ( (DadosLora[ 8] == '1')&&(DadosLora[ 9] == '1')&&
+[e $ ! && && && && && == -> *U + &U _DadosLora * -> -> -> 8 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 49 `ui == -> *U + &U _DadosLora * -> -> -> 9 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 49 `ui == -> *U + &U _DadosLora * -> -> -> 10 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 50 `ui == -> *U + &U _DadosLora * -> -> -> 11 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 50 `ui == -> *U + &U _DadosLora * -> -> -> 12 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 51 `ui == -> *U + &U _DadosLora * -> -> -> 13 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 51 `ui 605  ]
+"556
+[; ;main.c: 556:                 {
+{
+"557
+[; ;main.c: 557:                     if (fLigado==0)
+[e $ ! == -> _fLigado `i -> 0 `i 606  ]
 "558
-[; ;main.c: 558:                 {
+[; ;main.c: 558:                     {
 {
 "559
-[; ;main.c: 559:                     if (fLigado==0)
-[e $ ! == -> _fLigado `i -> 0 `i 605  ]
-"560
-[; ;main.c: 560:                     {
-{
-"561
-[; ;main.c: 561:                         __nop();
+[; ;main.c: 559:                         __nop();
 [e ( ___nop ..  ]
-"562
-[; ;main.c: 562:                         fLigado = 1;
+"560
+[; ;main.c: 560:                         fLigado = 1;
 [e = _fLigado -> -> 1 `i `a ]
-"563
-[; ;main.c: 563:                         fRTX=1;
+"561
+[; ;main.c: 561:                         fRTX=1;
 [e = _fRTX -> -> 1 `i `a ]
-"564
-[; ;main.c: 564:                         do { LATAbits.LATA6 = 1; } while(0);
-[e :U 608 ]
+"562
+[; ;main.c: 562:                         do { LATAbits.LATA6 = 1; } while(0);
+[e :U 609 ]
 {
 [e = . . _LATAbits 0 6 -> -> 1 `i `uc ]
 }
-[e :U 607 ]
-"565
-[; ;main.c: 565:                         cicloLED=0;
+[e :U 608 ]
+"563
+[; ;main.c: 563:                         cicloLED=0;
 [e = _cicloLED -> -> 0 `i `us ]
-"566
-[; ;main.c: 566:                         tempoRTX=0;
+"564
+[; ;main.c: 564:                         tempoRTX=0;
 [e = _tempoRTX -> -> 0 `i `us ]
-"567
-[; ;main.c: 567:                         do { LATAbits.LATA0 = 1; } while(0);
-[e :U 611 ]
+"565
+[; ;main.c: 565:                         do { LATAbits.LATA0 = 1; } while(0);
+[e :U 612 ]
 {
 [e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
 }
-[e :U 610 ]
+[e :U 611 ]
+"566
+[; ;main.c: 566:                     }
+}
+[e $U 613  ]
+"567
+[; ;main.c: 567:                     else
+[e :U 606 ]
 "568
-[; ;main.c: 568:                     }
-}
-[e $U 612  ]
-"569
-[; ;main.c: 569:                     else
-[e :U 605 ]
-"570
-[; ;main.c: 570:                         contaRTX=1;
+[; ;main.c: 568:                         contaRTX=1;
 [e = _contaRTX -> -> 1 `i `us ]
-[e :U 612 ]
-"571
-[; ;main.c: 571:                 }
+[e :U 613 ]
+"569
+[; ;main.c: 569:                 }
 }
-[e :U 604 ]
-"573
-[; ;main.c: 573:                 if ( (DadosLora[ 8] == '4')&&(DadosLora[ 9] == '4')&&
-[e $ ! && && && && && == -> *U + &U _DadosLora * -> -> -> 8 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 52 `ui == -> *U + &U _DadosLora * -> -> -> 9 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 52 `ui == -> *U + &U _DadosLora * -> -> -> 10 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 53 `ui == -> *U + &U _DadosLora * -> -> -> 11 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 53 `ui == -> *U + &U _DadosLora * -> -> -> 12 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 54 `ui == -> *U + &U _DadosLora * -> -> -> 13 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 54 `ui 613  ]
+[e :U 605 ]
+"571
+[; ;main.c: 571:                 if ( (DadosLora[ 8] == '4')&&(DadosLora[ 9] == '4')&&
+[e $ ! && && && && && == -> *U + &U _DadosLora * -> -> -> 8 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 52 `ui == -> *U + &U _DadosLora * -> -> -> 9 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 52 `ui == -> *U + &U _DadosLora * -> -> -> 10 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 53 `ui == -> *U + &U _DadosLora * -> -> -> 11 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 53 `ui == -> *U + &U _DadosLora * -> -> -> 12 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 54 `ui == -> *U + &U _DadosLora * -> -> -> 13 `i `ui `ux -> -> # *U &U _DadosLora `ui `ux `ui -> 54 `ui 614  ]
+"574
+[; ;main.c: 574:                 {
+{
+"575
+[; ;main.c: 575:                     if (fLigado==1)
+[e $ ! == -> _fLigado `i -> 1 `i 615  ]
 "576
-[; ;main.c: 576:                 {
+[; ;main.c: 576:                     {
 {
 "577
-[; ;main.c: 577:                     if (fLigado==1)
-[e $ ! == -> _fLigado `i -> 1 `i 614  ]
-"578
-[; ;main.c: 578:                     {
-{
-"579
-[; ;main.c: 579:                         __nop();
+[; ;main.c: 577:                         __nop();
 [e ( ___nop ..  ]
-"580
-[; ;main.c: 580:                         fLigado=0;
+"578
+[; ;main.c: 578:                         fLigado=0;
 [e = _fLigado -> -> 0 `i `a ]
-"581
-[; ;main.c: 581:                         fRTX=1;
+"579
+[; ;main.c: 579:                         fRTX=1;
 [e = _fRTX -> -> 1 `i `a ]
-"582
-[; ;main.c: 582:                         do { LATAbits.LATA6 = 1; } while(0);
-[e :U 617 ]
+"580
+[; ;main.c: 580:                         do { LATAbits.LATA6 = 1; } while(0);
+[e :U 618 ]
 {
 [e = . . _LATAbits 0 6 -> -> 1 `i `uc ]
 }
-[e :U 616 ]
-"583
-[; ;main.c: 583:                         cicloLED=0;
+[e :U 617 ]
+"581
+[; ;main.c: 581:                         cicloLED=0;
 [e = _cicloLED -> -> 0 `i `us ]
-"584
-[; ;main.c: 584:                         tempoRTX=0;
+"582
+[; ;main.c: 582:                         tempoRTX=0;
 [e = _tempoRTX -> -> 0 `i `us ]
-"585
-[; ;main.c: 585:                         do { LATAbits.LATA0 = 0; } while(0);
-[e :U 620 ]
+"583
+[; ;main.c: 583:                         do { LATAbits.LATA0 = 0; } while(0);
+[e :U 621 ]
 {
 [e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
 }
-[e :U 619 ]
-"586
-[; ;main.c: 586:                     }
+[e :U 620 ]
+"584
+[; ;main.c: 584:                     }
 }
-[e $U 621  ]
+[e $U 622  ]
+"585
+[; ;main.c: 585:                     else
+[e :U 615 ]
+"586
+[; ;main.c: 586:                         contaRTX=2;
+[e = _contaRTX -> -> 2 `i `us ]
+[e :U 622 ]
 "587
-[; ;main.c: 587:                     else
+[; ;main.c: 587:                 }
+}
 [e :U 614 ]
 "588
-[; ;main.c: 588:                         contaRTX=2;
-[e = _contaRTX -> -> 2 `i `us ]
-[e :U 621 ]
-"589
-[; ;main.c: 589:                 }
+[; ;main.c: 588:             }
 }
-[e :U 613 ]
+[e :U 604 ]
 "590
-[; ;main.c: 590:             }
-}
-[e :U 603 ]
+[; ;main.c: 590:             SM_CFOFF();
+[e ( _SM_CFOFF ..  ]
+"591
+[; ;main.c: 591:             SM_CONFIGRADIO(22);
+[e ( _SM_CONFIGRADIO (1 -> -> 22 `i `uc ]
 "592
-[; ;main.c: 592:             SM_CFOFF();
-[e ( _SM_CFOFF ..  ]
+[; ;main.c: 592:             SM_MODORX(22);
+[e ( _SM_MODORX (1 -> -> 22 `i `uc ]
 "593
-[; ;main.c: 593:             SM_CONFIGRADIO(22);
-[e ( _SM_CONFIGRADIO (1 -> -> 22 `i `uc ]
-"594
-[; ;main.c: 594:             SM_MODORX(22);
-[e ( _SM_MODORX (1 -> -> 22 `i `uc ]
-"595
-[; ;main.c: 595:             SM_CFOFF();
+[; ;main.c: 593:             SM_CFOFF();
 [e ( _SM_CFOFF ..  ]
-"596
-[; ;main.c: 596:             SM_CONFIGRADIO(22);
+"594
+[; ;main.c: 594:             SM_CONFIGRADIO(22);
 [e ( _SM_CONFIGRADIO (1 -> -> 22 `i `uc ]
-"597
-[; ;main.c: 597:             SM_MODORX(22);
+"595
+[; ;main.c: 595:             SM_MODORX(22);
 [e ( _SM_MODORX (1 -> -> 22 `i `uc ]
-"598
-[; ;main.c: 598:             __nop();
+"596
+[; ;main.c: 596:             __nop();
 [e ( ___nop ..  ]
-"599
-[; ;main.c: 599:         }
+"597
+[; ;main.c: 597:         }
 }
-[e :U 574 ]
-"600
-[; ;main.c: 600:     }
+[e :U 575 ]
+"598
+[; ;main.c: 598:     }
 }
 [e :U 544 ]
 [e $U 545  ]
 [e :U 546 ]
-"601
-[; ;main.c: 601: }
+"599
+[; ;main.c: 599: }
 [e :UE 476 ]
 }
-"606
-[; ;main.c: 606: __asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "'9'" "," "'8'" "," "'7'" "," "'6'" "," "2" "," "1" "," "54" "," "55");
+"604
+[; ;main.c: 604: __asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "'9'" "," "'8'" "," "'7'" "," "'6'" "," "2" "," "1" "," "54" "," "55");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
 [; <" 	db	'9','8','7','6',2,1,54,55 ;# ">
-"608
-[; ;main.c: 608: __asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "52" "," "51" "," "51" "," "50" "," "71" "," "71" "," "70" "," "70");
+"606
+[; ;main.c: 606: __asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "52" "," "51" "," "51" "," "50" "," "71" "," "71" "," "70" "," "70");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
 [; <" 	db	52,51,51,50,71,71,70,70 ;# ">
-"610
-[; ;main.c: 610: __asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "14" "," "212" "," "57" "," "111" "," "21" "," "8" "," "11" "," "27");
+"608
+[; ;main.c: 608: __asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "14" "," "212" "," "57" "," "111" "," "21" "," "8" "," "11" "," "27");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
 [; <" 	db	14,212,57,111,21,8,11,27 ;# ">
-"611
-[; ;main.c: 611: __asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "11" "," "222" "," "4" "," "0" "," "0" "," "85" "," "36" "," "232");
+"609
+[; ;main.c: 609: __asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "11" "," "222" "," "4" "," "0" "," "0" "," "85" "," "36" "," "232");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
 [; <" 	db	11,222,4,0,0,85,36,232 ;# ">
-"612
-[; ;main.c: 612: __asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "89" "," "189" "," "9" "," "8" "," "43" "," "243" "," "42" "," "31");
+"610
+[; ;main.c: 610: __asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "89" "," "189" "," "9" "," "8" "," "43" "," "243" "," "42" "," "31");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
 [; <" 	db	89,189,9,8,43,243,42,31 ;# ">
-"613
-[; ;main.c: 613: __asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "21" "," "0" "," "1" "," "2" "," "3" "," "4" "," "5" "," "6");
+"611
+[; ;main.c: 611: __asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "21" "," "0" "," "1" "," "2" "," "3" "," "4" "," "5" "," "6");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
 [; <" 	db	21,0,1,2,3,4,5,6 ;# ">
-"614
-[; ;main.c: 614: __asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "56" "," "55" "," "55" "," "54" "," "68" "," "68" "," "68" "," "67");
+"612
+[; ;main.c: 612: __asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "56" "," "55" "," "55" "," "54" "," "68" "," "68" "," "68" "," "67");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
 [; <" 	db	56,55,55,54,68,68,68,67 ;# ">
-"615
-[; ;main.c: 615: __asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "91" "," "90" "," "90" "," "89" "," "38" "," "37" "," "37" "," "0");
+"613
+[; ;main.c: 613: __asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "91" "," "90" "," "90" "," "89" "," "38" "," "37" "," "37" "," "0");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
 [; <" 	db	91,90,90,89,38,37,37,0 ;# ">

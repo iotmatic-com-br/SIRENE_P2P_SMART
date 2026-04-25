@@ -4950,7 +4950,7 @@ void main(void)
 
             do { LATAbits.LATA7 = 1; } while(0);
 
-            passagem++;
+            if (PORTAbits.RA4==0) passagem++;
             if (passagem>(20*60000))
             {
                 passagem=(20*60000);
@@ -4958,10 +4958,8 @@ void main(void)
                 __asm("reset");
             }
         }
-
         else
             do { LATAbits.LATA7 = 0; } while(0);
-
 
 
         if (fRTX==1)

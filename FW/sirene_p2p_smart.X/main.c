@@ -1,10 +1,10 @@
 ////////////////////////////////////////////////////////////////////////////////
 //// SIRENE SMART - de 9001 a 9099 !!
 ////
-////    JP1 ABERTO  - RECEBE E DEPOIS REPLICA
-////        FECHADO - "NAO REPLICA"
-////    JP2 ABERTO  - Pisca Verde a cada  1s 
-////        FECHADO - Pisca Verde a cada  5s 
+////    JP1 ABERTO  - 
+////        FECHADO - 
+////    JP2 ABERTO  - 
+////        FECHADO - 
 ////    JP3 ABERTO  -
 ////        FECHADO -
 ////    JP4 ABERTO  -
@@ -13,7 +13,7 @@
 ////    Desligara AUTOMATICAMENTE após 20 minutos acionado              28/06/22
 ////  ---------- Correcao da replicacao infinita !!                     28/07/22
 ////
-////    revisao                                                         09/12/24
+////    revisao                                                         25/04826
 ////                PRODUCAO 2025 - INICIO                              20/08/25
 //###  ###  ###  ###  ###  ###  ###  ###  ###  ###  ###  ###  ###  ###  
 //
@@ -25,7 +25,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 #define     K_MaxDelay              30      //delay max para replicacao
 #define     SinalizaTransmissao             // led vermelho indica radio lora enviando
-#define     indicaACverm        //acende vermelho se acionado
+#define     indicaACverm                    //acende vermelho se acionado
 
 ////////////////////////////////////////////////////////////////////////////////
 #pragma warning disable 520
@@ -404,7 +404,7 @@ void main(void)
 #ifdef indicaACverm
             VMon;
 #endif            
-            passagem++;
+            if (jp4FEC) passagem++;
             if (passagem>K_Toff) 
             {
                 passagem=K_Toff;
@@ -412,10 +412,8 @@ void main(void)
                 RESET();
             }
         }
-#ifdef indicaACverm
         else
             VMoff;
-#endif            
 
         /////////////////////// delay para retransmissao
         if (fRTX==1)
