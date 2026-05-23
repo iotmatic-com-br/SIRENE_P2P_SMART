@@ -1555,8 +1555,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 271:     __nop();
 [e ( ___nop ..  ]
 "274
-[; ;main.c: 274:     ENDERECO = 9132;
-[e = _ENDERECO -> -> 9132 `i `us ]
+[; ;main.c: 274:     ENDERECO = 9133;
+[e = _ENDERECO -> -> 9133 `i `us ]
 "275
 [; ;main.c: 275:     endereco_M = (uint8_t)(ENDERECO/1000);
 [e = _endereco_M -> / -> _ENDERECO `ui -> -> 1000 `i `ui `uc ]
@@ -2164,8 +2164,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 456:             indice=0;
 [e = _indice -> -> 0 `i `uc ]
 "458
-[; ;main.c: 458:             ENDERECO = 9132;
-[e = _ENDERECO -> -> 9132 `i `us ]
+[; ;main.c: 458:             ENDERECO = 9133;
+[e = _ENDERECO -> -> 9133 `i `us ]
 "460
 [; ;main.c: 460:             __nop();
 [e ( ___nop ..  ]
