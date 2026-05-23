@@ -436,7 +436,7 @@ _EUSART_Reset F8F 0 CODE 0
 _OSCILLATOR_Initialize DCA 0 CODE 0
 _cicloLED 1EC 0 BANK3 1
 _SM_MODORX F2D 0 CODE 0
-__Hreset_vec 2 0 CODE 0
+__Hreset_vec 3 0 CODE 0
 __Lreset_vec 0 0 CODE 0
 _ENDERECO 164 0 BANK2 1
 __Hstringtext5 0 0 ABS 0
@@ -497,7 +497,7 @@ _endereco_U 220 0 BANK4 1
 _TotalSerial E4 0 BANK1 1
 %segments
 eeprom_data 0 7F EEDATA 1E000 3
-reset_vec 0 3 CODE 0 0
+reset_vec 0 7 CODE 0 0
 intentry 8 FFF CODE 8 0
 cstackCOMMON 70 7D COMMON 70 1
 bssBANK4 220 23A BANK4 220 1
@@ -530,10 +530,9 @@ text25 1B4C 1B57 CODE 1B4C 0
 text2 1B44 1B4B CODE 1B44 0
 text29 1B3C 1B43 CODE 1B3C 0
 text31 1B34 1B3B CODE 1B34 0
-text30 6 7 CODE 6 0
 %locals
-dist/27/production\sirene_p2p_smart.X.production.o
-C:\Users\iotma\AppData\Local\Temp\xcAscuc.0\driver_tmp_1.s
+dist/27/debug\sirene_p2p_smart.X.debug.o
+C:\Users\iotma\AppData\Local\Temp\xcAs7io.0\driver_tmp_1.s
 2741 31 0 CODE 0
 2744 31 0 CODE 0
 3017 31 0 CODE 0

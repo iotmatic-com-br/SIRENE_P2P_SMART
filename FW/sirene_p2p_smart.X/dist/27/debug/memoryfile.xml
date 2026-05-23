@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/27/production\sirene_p2p_smart.X.production.hex">
+  <executable name="dist/27/debug\sirene_p2p_smart.X.debug.hex">
     <memory name="program">
       <units>words</units>
       <length>4096</length>
-      <used>2772</used>
-      <free>1324</free>
+      <used>2773</used>
+      <free>1323</free>
     </memory>
     <memory name="data">
       <units>bytes</units>

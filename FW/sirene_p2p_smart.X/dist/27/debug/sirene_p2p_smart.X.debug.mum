@@ -1,6 +1,6 @@
 
 16F1827 Memory Summary:
-    Program space        used   AD4h (  2772) of  1000h words   ( 67.7%)
+    Program space        used   AD5h (  2773) of  1000h words   ( 67.7%)
     Data space           used   16Bh (   363) of   180h bytes   ( 94.5%)
     EEPROM space         used    40h (    64) of   100h bytes   ( 25.0%)
     Configuration bits   used     2h (     2) of     2h words   (100.0%)

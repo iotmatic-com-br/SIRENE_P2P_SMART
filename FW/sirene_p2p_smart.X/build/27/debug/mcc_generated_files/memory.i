@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "mcc_generated_files/memory.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 295 "<built-in>" 3
@@ -6,11 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 31 "main.c"
-#pragma warning disable 520
-# 1 "./mcc_generated_files/mcc.h" 1
-# 49 "./mcc_generated_files/mcc.h"
+# 1 "mcc_generated_files/memory.c" 2
+# 51 "mcc_generated_files/memory.c"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include/xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4324,837 +4321,192 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include/xc.h" 2 3
-# 50 "./mcc_generated_files/mcc.h" 2
-# 1 "./mcc_generated_files/device_config.h" 1
-# 51 "./mcc_generated_files/mcc.h" 2
-# 1 "./mcc_generated_files/pin_manager.h" 1
-# 244 "./mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_Initialize (void);
-# 256 "./mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_IOC(void);
-# 52 "./mcc_generated_files/mcc.h" 2
-
+# 52 "mcc_generated_files/memory.c" 2
+# 1 "mcc_generated_files/memory.h" 1
+# 54 "mcc_generated_files/memory.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include\\c99/stdbool.h" 1 3
-# 54 "./mcc_generated_files/mcc.h" 2
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include\\c99/conio.h" 1 3
-
-
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include\\c99/stdio.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include\\c99/stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include\\c99/bits/alltypes.h" 1 3
-# 12 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include\\c99/bits/alltypes.h" 3
-typedef void * va_list[1];
-
-
-
-
-typedef void * __isoc_va_list[1];
-# 143 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include\\c99/bits/alltypes.h" 3
-typedef short ssize_t;
-# 255 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include\\c99/bits/alltypes.h" 3
-typedef long long off_t;
-# 409 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include\\c99/bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 25 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include\\c99/stdio.h" 2 3
-# 52 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include\\c99/stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
-
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
-
-
-
-
-
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
-
-int remove(const char *);
-int rename(const char *, const char *);
-
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
-
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
-
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
-
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
-
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
-
-
-
-
-
-int ungetc(int, FILE *);
-int getch(void);
-
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
-
-
-
-
-
-void putch(char);
-
-char *fgets(char *restrict, int, FILE *restrict);
-
-char *gets(char *);
-
-
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
-
-__attribute__((__format__(__printf__, 1, 2)))
-int printf(const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int fprintf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int sprintf(char *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 3, 4)))
-int snprintf(char *restrict, size_t, const char *restrict, ...);
-
-__attribute__((__format__(__printf__, 1, 0)))
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 2, 0)))
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 3, 0)))
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
-
-__attribute__((__format__(__scanf__, 1, 2)))
-int scanf(const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int fscanf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int sscanf(const char *restrict, const char *restrict, ...);
-
-__attribute__((__format__(__scanf__, 1, 0)))
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__scanf__, 2, 0)))
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
-
-void perror(const char *);
-
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
-
-char *tmpnam(char *);
-FILE *tmpfile(void);
-
-
-
-
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
-
-
-
-
-
-
-
-char *tempnam(const char *, const char *);
-# 8 "C:\\Program Files\\Microchip\\xc8\\v3.10\\pic\\include\\c99/conio.h" 2 3
-# 55 "./mcc_generated_files/mcc.h" 2
-# 1 "./mcc_generated_files/interrupt_manager.h" 1
-# 56 "./mcc_generated_files/mcc.h" 2
-# 1 "./mcc_generated_files/memory.h" 1
-# 99 "./mcc_generated_files/memory.h"
+# 55 "mcc_generated_files/memory.h" 2
+# 99 "mcc_generated_files/memory.h"
 uint16_t FLASH_ReadWord(uint16_t flashAddr);
-# 128 "./mcc_generated_files/memory.h"
+# 128 "mcc_generated_files/memory.h"
 void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
-# 164 "./mcc_generated_files/memory.h"
+# 164 "mcc_generated_files/memory.h"
 int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
-# 189 "./mcc_generated_files/memory.h"
+# 189 "mcc_generated_files/memory.h"
 void FLASH_EraseBlock(uint16_t startAddr);
-# 220 "./mcc_generated_files/memory.h"
+# 220 "mcc_generated_files/memory.h"
 void DATAEE_WriteByte(uint8_t bAdd, uint8_t bData);
-# 246 "./mcc_generated_files/memory.h"
+# 246 "mcc_generated_files/memory.h"
 uint8_t DATAEE_ReadByte(uint8_t bAdd);
-# 57 "./mcc_generated_files/mcc.h" 2
-# 1 "./mcc_generated_files/eusart.h" 1
-# 75 "./mcc_generated_files/eusart.h"
-typedef union {
-    struct {
-        unsigned perr : 1;
-        unsigned ferr : 1;
-        unsigned oerr : 1;
-        unsigned reserved : 5;
-    };
-    uint8_t status;
-}eusart_status_t;
-
-
-
-
-extern volatile uint8_t eusartTxBufferRemaining;
-extern volatile uint8_t eusartRxCount;
-
-
-
-
-extern void (*EUSART_TxDefaultInterruptHandler)(void);
-extern void (*EUSART_RxDefaultInterruptHandler)(void);
-
-void EUSART_Reset(void);
-# 119 "./mcc_generated_files/eusart.h"
-void EUSART_Initialize(void);
-# 167 "./mcc_generated_files/eusart.h"
-_Bool EUSART_is_tx_ready(void);
-# 215 "./mcc_generated_files/eusart.h"
-_Bool EUSART_is_rx_ready(void);
-# 262 "./mcc_generated_files/eusart.h"
-_Bool EUSART_is_tx_done(void);
-# 310 "./mcc_generated_files/eusart.h"
-eusart_status_t EUSART_get_last_status(void);
-# 330 "./mcc_generated_files/eusart.h"
-uint8_t EUSART_Read(void);
-# 350 "./mcc_generated_files/eusart.h"
-void EUSART_Write(uint8_t txData);
-# 371 "./mcc_generated_files/eusart.h"
-void EUSART_Transmit_ISR(void);
-# 392 "./mcc_generated_files/eusart.h"
-void EUSART_Receive_ISR(void);
-# 413 "./mcc_generated_files/eusart.h"
-void EUSART_RxDataHandler(void);
-# 431 "./mcc_generated_files/eusart.h"
-void EUSART_SetFramingErrorHandler(void (* interruptHandler)(void));
-# 449 "./mcc_generated_files/eusart.h"
-void EUSART_SetOverrunErrorHandler(void (* interruptHandler)(void));
-# 467 "./mcc_generated_files/eusart.h"
-void EUSART_SetErrorHandler(void (* interruptHandler)(void));
-# 487 "./mcc_generated_files/eusart.h"
-void EUSART_SetTxInterruptHandler(void (* interruptHandler)(void));
-# 507 "./mcc_generated_files/eusart.h"
-void EUSART_SetRxInterruptHandler(void (* interruptHandler)(void));
-# 58 "./mcc_generated_files/mcc.h" 2
-# 72 "./mcc_generated_files/mcc.h"
-void SYSTEM_Initialize(void);
-# 85 "./mcc_generated_files/mcc.h"
-void OSCILLATOR_Initialize(void);
-# 97 "./mcc_generated_files/mcc.h"
-void WDT_Initialize(void);
-# 33 "main.c" 2
+# 53 "mcc_generated_files/memory.c" 2
 
 
 
 
 
-
-
-
-const uint8_t _RESET[] = "ATZ\r";
-const uint8_t _CFOFF[ ] = "AT+TOFF\r";
-const uint8_t _TXC22PING[] = "AT+TXLRA=906700:0:PING\r";
-
-const uint8_t _TXSTART22[] = "AT+TXLRA=906700:0:";
-const uint8_t _CFC22[] = "AT+TCONF=906700:22:125:12:4/8:1:1\r";
-const uint8_t _RXC22[] = "AT+RXLRA=906700:1\r";
-
-
-
-
-enum
+uint16_t FLASH_ReadWord(uint16_t flashAddr)
 {
-    fSM_OK = 1,
-    fSM_ATERROR = 2,
-    fSM_TOUT = 3,
-    fSM_CFGERR = 4,
-    fSM_CHERR = 5,
-    fSM_D = 6,
-    fSM_NORADIO = 7
-} SM_STATUSflags;
+    uint8_t GIEBitValue = INTCONbits.GIE;
 
-uint8_t TIPO;
-uint8_t AcAliveBatOK,AcAliveBatLOW;
-uint8_t AcEVTBatOK,AcEVTBatLOW;
+    INTCONbits.GIE = 0;
+    EEADRL = (flashAddr & 0x00FF);
+    EEADRH = ((flashAddr & 0xFF00) >> 8);
 
-
-volatile _Bool fBusy,fAT,fATerr,fParm,fDetec,fOK,fTxOk,fAtOk;
-volatile _Bool fTimeOut,fProgID,fErroID,fLigado,fRTX,fReplicar;
-volatile uint8_t fRetLora,indice;
-uint16_t OFFSET,ENDERECO,TempoDeReplicacao;
-volatile uint8_t DadosLora[64];
-volatile uint8_t flags[6],ID[4];
-volatile uint8_t pacoteTRX[14];
-volatile uint8_t UltimoDadoRecebido,fComandoSirene;;
-volatile uint16_t TotalSerial;
-
-volatile uint8_t indiceSensor,fRetSensor;
-volatile uint8_t DadosSensor[8];
-
-
-__persistent uint16_t segsAlive;
-
-uint8_t fRepete,fEspera,HH,LL,loop,canal,dips;
-uint16_t tempoEspera,tMs,cicloLED,tempoRTX,contaRTX;
-uint8_t BatH,BatL;
-uint8_t temp8,rett;
-uint16_t temp16;
-uint32_t passagem;
-
-uint8_t M_EnderecoRecebido,C_EnderecoRecebido,D_EnderecoRecebido,U_EnderecoRecebido;
-uint16_t enderecoRecebido;
-union Data {
-   uint16_t end16;
-   uint8_t endhl[2];
-} endereco,offset;
-
-volatile uint8_t endereco_M,endereco_C,endereco_D,endereco_U;
-
-
-
-
-
-
-void ModuloOn()
-{
-    do { LATBbits.LATB1 = 0; } while(0);
-    _delay((unsigned long)((50)*(16000000/4000.0)));
-    __nop(); __nop(); __nop(); __nop();
-    do { LATBbits.LATB1 = 1; } while(0);
-    __nop(); __nop(); __nop(); __nop();
-    _delay((unsigned long)((1000)*(16000000/4000.0)));
-}
-void ModuloOff()
-{
-    do { LATBbits.LATB1 = 0; } while(0); _delay((unsigned long)((10)*(16000000/4000.0)));
-    do { TRISBbits.TRISB1 = 0; } while(0); _delay((unsigned long)((10)*(16000000/4000.0)));
-
-
-
-}
-
-void ErrCode(uint8_t code)
-{
-uint8_t qual = code;
+    EECON1bits.CFGS = 0;
+    EECON1bits.EEPGD = 1;
+    EECON1bits.RD = 1;
     __nop();
-    ModuloOff();
-    for (;;)
+    __nop();
+    INTCONbits.GIE = GIEBitValue;
+
+    return ((uint16_t)((EEDATH << 8) | EEDATL));
+}
+
+void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word)
+{
+    uint16_t blockStartAddr = (uint16_t)(flashAddr & ((0x1000 -1) ^ (32 -1)));
+    uint8_t offset = (uint8_t)(flashAddr & (32 -1));
+    uint8_t i;
+
+
+    for (i=0; i<32; i++)
     {
-        do { LATAbits.LATA7 = 1; } while(0); _delay((unsigned long)((250)*(16000000/4000.0))); do { LATAbits.LATA7 = 0; } while(0); _delay((unsigned long)((250)*(16000000/4000.0)));
-        do { LATAbits.LATA7 = 1; } while(0); _delay((unsigned long)((250)*(16000000/4000.0))); do { LATAbits.LATA7 = 0; } while(0); _delay((unsigned long)((250)*(16000000/4000.0)));
-        do { LATAbits.LATA6 = 1; } while(0); _delay((unsigned long)((250)*(16000000/4000.0))); do { LATAbits.LATA6 = 0; } while(0); _delay((unsigned long)((250)*(16000000/4000.0)));
-        do { LATAbits.LATA6 = 1; } while(0); _delay((unsigned long)((250)*(16000000/4000.0))); do { LATAbits.LATA6 = 0; } while(0); _delay((unsigned long)((250)*(16000000/4000.0)));
-        _delay((unsigned long)((1000)*(16000000/4000.0)));
+        ramBuf[i] = FLASH_ReadWord((blockStartAddr+i));
+        __asm("clrwdt");
     }
+
+
+    ramBuf[offset] = word;
+
+
+    FLASH_WriteBlock(blockStartAddr, ramBuf);
 }
-uint8_t Espera_OK()
+
+int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray)
 {
-    temp16=0;
-    while (!fOK)
+    uint16_t blockStartAddr = (uint16_t )(writeAddr & ((0x1000 -1) ^ (32 -1)));
+    uint8_t GIEBitValue = INTCONbits.GIE;
+    uint8_t i,j,numberOfWriteBlocks=0,dataCounter=0;
+
+    numberOfWriteBlocks = (32/8);
+
+
+    if( writeAddr != blockStartAddr )
     {
-        _delay((unsigned long)((1)*(16000000/4000.0)));
-        if (++temp16>2000)
-            return fSM_TOUT;
-        if (fATerr)
-            return fSM_ATERROR;
+        return -1;
     }
-    return fSM_OK;
-}
-uint8_t Espera_TxOk()
-{
-    temp16=0;
-    while (indice<36)
+
+    INTCONbits.GIE = 0;
+
+
+    FLASH_EraseBlock(writeAddr);
+
+    for(j=0; j<numberOfWriteBlocks; j++)
     {
-        _delay((unsigned long)((1)*(16000000/4000.0)));
-        if (++temp16>5000)
-            return fSM_TOUT;
-    }
-        return fSM_OK;
-}
+
+  EECON1bits.EEPGD = 1;
+  EECON1bits.CFGS = 0;
+  EECON1bits.WREN = 1;
+  EECON1bits.LWLO = 1;
+
+  for (i=0; i<8; i++)
+  {
+
+   EEADRL = (writeAddr & 0xFF);
+
+   EEADRH = ((writeAddr & 0xFF00) >> 8);
 
 
+   EEDATL = flashWordArray[dataCounter];
+   EEDATH = ((flashWordArray[dataCounter] & 0xFF00) >> 8);
+   dataCounter++;
 
+   if(i == (8 -1))
+   {
 
-void SM_RESET()
-{
-    EUSART_Reset();
-    for (loop=0; _RESET[loop]!=0; loop++) EUSART_Write (_RESET[loop]);
-    _delay((unsigned long)((100)*(16000000/4000.0)));
-}
-void SM_CONFIGRADIO(uint8_t ch)
-{
-    EUSART_Reset();
-    for (loop=0; _CFC22[loop]!=0; loop++) EUSART_Write (_CFC22[loop]);
-    _delay((unsigned long)((100)*(16000000/4000.0)));
-}
-void SM_MODORX(uint8_t ch)
-{
-    EUSART_Reset();
-    for (loop=0; _RXC22[loop]!=0; loop++) EUSART_Write (_RXC22[loop]);
-    _delay((unsigned long)((100)*(16000000/4000.0)));
-    EUSART_Reset();
-}
-void SM_CFOFF()
-{
-    EUSART_Reset();
-    for (loop=0; _CFOFF[loop]!=0; loop++) EUSART_Write (_CFOFF[loop]);
-    _delay((unsigned long)((100)*(16000000/4000.0)));
-}
-void SM_PING()
-{
-    EUSART_Reset();
-    for (loop=0; _TXC22PING[loop]!=0; loop++) EUSART_Write (_TXC22PING[loop]);
-    _delay((unsigned long)((2000)*(16000000/4000.0)));
+    EECON1bits.LWLO = 0;
+   }
+
+   EECON2 = 0x55;
+   EECON2 = 0xAA;
+   EECON1bits.WR = 1;
+   __nop();
+   __nop();
+
+   writeAddr++;
+   __asm("clrwdt");
+  }
+ }
+
+    EECON1bits.WREN = 0;
+    INTCONbits.GIE = GIEBitValue;
+
+    return 0;
 }
 
-uint8_t SM_START()
+void FLASH_EraseBlock(uint16_t startAddr)
 {
-    EUSART_Reset();
-    ModuloOn();
-    _delay((unsigned long)((3000)*(16000000/4000.0)));
+    uint8_t GIEBitValue = INTCONbits.GIE;
+
+    INTCONbits.GIE = 0;
+
+    EEADRL = (startAddr & 0xFF);
+
+    EEADRH = ((startAddr & 0xFF00) >> 8);
+
+
+    EECON1bits.CFGS = 0;
+    EECON1bits.EEPGD = 1;
+    EECON1bits.FREE = 1;
+    EECON1bits.WREN = 1;
+
+
+    EECON2 = 0x55;
+    EECON2 = 0xAA;
+    EECON1bits.WR = 1;
     __nop();
-    temp8=0;
-    while (temp8<3)
+    __nop();
+
+    EECON1bits.WREN = 0;
+    INTCONbits.GIE = GIEBitValue;
+}
+
+
+
+
+
+void DATAEE_WriteByte(uint8_t bAdd, uint8_t bData)
+{
+    uint8_t GIEBitValue = 0;
+
+    EEADRL = (uint8_t)(bAdd & 0x0ff);
+    EEDATL = bData;
+    EECON1bits.EEPGD = 0;
+    EECON1bits.CFGS = 0;
+    EECON1bits.WREN = 1;
+
+    GIEBitValue = INTCONbits.GIE;
+    INTCONbits.GIE = 0;
+    EECON2 = 0x55;
+    EECON2 = 0xAA;
+    EECON1bits.WR = 1;
+
+    while (EECON1bits.WR)
     {
-        SM_RESET();
-        temp16=0;
-        while (++temp16<3000)
-        {
-            _delay((unsigned long)((1)*(16000000/4000.0)));
-            if (fAtOk)
-                return fSM_OK;
-        }
-        temp8++;
     }
-    return fSM_NORADIO;
+
+    EECON1bits.WREN = 0;
+    INTCONbits.GIE = GIEBitValue;
 }
 
-void TX_Lora()
+uint8_t DATAEE_ReadByte(uint8_t bAdd)
 {
+    EEADRL = (uint8_t)(bAdd & 0x0ff);
+    EECON1bits.CFGS = 0;
+    EECON1bits.EEPGD = 0;
+    EECON1bits.RD = 1;
+    __nop();
     __nop();
 
-    do { LATAbits.LATA6 = 1; } while(0);
-
-
-    ModuloOn();
-
-    SM_CFOFF();
-    __nop();
-    SM_CONFIGRADIO(22);
-    __nop();
-
-
-    EUSART_Reset();
-    for (loop=0; _TXSTART22[loop]!=0; loop++) EUSART_Write (_TXSTART22[loop]);
-
-    EUSART_Write(pacoteTRX[ 0]);
-    EUSART_Write(pacoteTRX[ 1]);
-    EUSART_Write(pacoteTRX[ 2]);
-    EUSART_Write(pacoteTRX[ 3]);
-    EUSART_Write(pacoteTRX[ 4]);
-    EUSART_Write(pacoteTRX[ 5]);
-    EUSART_Write(pacoteTRX[ 6]);
-    EUSART_Write(pacoteTRX[ 7]);
-    EUSART_Write(pacoteTRX[ 8]);
-    EUSART_Write(pacoteTRX[ 9]);
-    EUSART_Write(pacoteTRX[10]);
-    EUSART_Write(pacoteTRX[11]);
-    EUSART_Write(pacoteTRX[12]);
-    EUSART_Write(pacoteTRX[13]);
-
-    EUSART_Write (0x0D);
-    Espera_TxOk();
-    __nop();
-
-
-    do { LATAbits.LATA6 = 0; } while(0);
-
+    return (EEDATL);
 }
-
-void TesteEnvio()
-{
-    while (PORTBbits.RB0==0)
-    { do { LATAbits.LATA7 = 1; } while(0); _delay((unsigned long)((50)*(16000000/4000.0))); do { LATAbits.LATA7 = 0; } while(0); _delay((unsigned long)((50)*(16000000/4000.0))); }
-
-    do { LATAbits.LATA7 = 1; } while(0);
-
-    SM_CFOFF();
-    __nop();
-    SM_CONFIGRADIO(22);
-    __nop();
-
-
-    ENDERECO = 9132;
-    endereco_M = (uint8_t)(ENDERECO/1000);
-    temp16 = ENDERECO%1000;
-    endereco_C = (uint8_t)(temp16/100);
-    temp16 = temp16%100;
-    endereco_D = (uint8_t)(temp16/10);
-    endereco_U = (uint8_t)(temp16%10);
-
-    endereco_M += 48;
-    endereco_C += 48;
-    endereco_D += 48;
-    endereco_U += 48;
-    __nop();
-
-    EUSART_Reset();
-    for (loop=0; _TXSTART22[loop]!=0; loop++) EUSART_Write (_TXSTART22[loop]);
-    EUSART_Write('S');
-    EUSART_Write('i');
-    EUSART_Write('r');
-    EUSART_Write('e');
-    EUSART_Write('n');
-    EUSART_Write('e');
-    EUSART_Write(':');
-    EUSART_Write(' ');
-    EUSART_Write(endereco_M);
-    EUSART_Write(endereco_C);
-    EUSART_Write(endereco_D);
-    EUSART_Write(endereco_U);
-    EUSART_Write (0x0D);
-    _delay((unsigned long)((2000)*(16000000/4000.0)));
-
-
-    SM_CFOFF();
-    SM_CONFIGRADIO(22);
-    SM_MODORX(22);
-    SM_CFOFF();
-    SM_CONFIGRADIO(22);
-    SM_MODORX(22);
-    __nop();
-    do { LATAbits.LATA7 = 0; } while(0);
-}
-
-void main(void)
-{
-    __nop();
-    __nop();
-
-
-    PIN_MANAGER_Initialize();
-    do { TRISBbits.TRISB1 = 0; } while(0);
-    do { LATBbits.LATB1 = 0; } while(0);
-    OSCILLATOR_Initialize();
-    WDT_Initialize();
-    WDTCONbits.SWDTEN=0;
-    do { LATAbits.LATA0 = 0; } while(0);
-    do { ANSELAbits.ANSA0 = 0; } while(0);
-    do { TRISAbits.TRISA0 = 0; } while(0);
-    do { LATAbits.LATA0 = 0; } while(0);
-    ModuloOff();
-
-    do { LATAbits.LATA6 = 1; } while(0); do { LATAbits.LATA7 = 1; } while(0);
-
-
-    indice=0;
-    fRetSensor=250;
-    segsAlive=0;
-
-    EUSART_Initialize();
-    (INTCONbits.GIE = 1);
-    (INTCONbits.PEIE = 1);
-
-
-    __nop();
-    rett = SM_START();
-    if (rett != fSM_OK)
-        ErrCode(rett);
-    __nop();
-
-
-    do { LATAbits.LATA6 = 0; } while(0); do { LATAbits.LATA7 = 0; } while(0);
-    _delay((unsigned long)((50)*(16000000/4000.0)));
-    SM_CFOFF();
-    SM_CONFIGRADIO(22);
-    SM_MODORX(22);
-    SM_CFOFF();
-    SM_CONFIGRADIO(22);
-    SM_MODORX(22);
-    __nop();
-
-    do { LATAbits.LATA6 = 1; } while(0); do { LATAbits.LATA7 = 1; } while(0); _delay((unsigned long)((50)*(16000000/4000.0))); do { LATAbits.LATA6 = 0; } while(0); do { LATAbits.LATA7 = 0; } while(0); _delay((unsigned long)((50)*(16000000/4000.0)));
-    do { LATAbits.LATA6 = 1; } while(0); do { LATAbits.LATA7 = 1; } while(0); _delay((unsigned long)((50)*(16000000/4000.0))); do { LATAbits.LATA6 = 0; } while(0); do { LATAbits.LATA7 = 0; } while(0); _delay((unsigned long)((50)*(16000000/4000.0)));
-    do { LATAbits.LATA6 = 1; } while(0); do { LATAbits.LATA7 = 1; } while(0); _delay((unsigned long)((50)*(16000000/4000.0))); do { LATAbits.LATA6 = 0; } while(0); do { LATAbits.LATA7 = 0; } while(0); _delay((unsigned long)((150)*(16000000/4000.0)));
-
-    fLigado=0;
-    indice=0;
-    tempoRTX=0;
-    passagem=0;
-    contaRTX=0;
-    cicloLED=50000;
-    __nop();
-
-    while (1)
-    {
-        __nop();
-        if (PORTBbits.RB0==0)
-        {
-            TesteEnvio();
-        }
-
-
-        _delay((unsigned long)((1)*(16000000/4000.0)));
-
-
-        if (fRTX==0) cicloLED++;
-        if (cicloLED==200)
-        {
-            do { LATAbits.LATA6 = 0; } while(0);
-        }
-        else
-        {
-            if (cicloLED>=5000)
-            {
-                do { LATAbits.LATA6 = 1; } while(0);
-                cicloLED=0;
-            }
-        }
-
-
-        if (fLigado)
-        {
-
-            do { LATAbits.LATA7 = 1; } while(0);
-
-
-                passagem++;
-            if (passagem>1200000)
-            {
-                passagem=1200000;
-                __nop();
-                __asm("reset");
-            }
-        }
-        else
-            do { LATAbits.LATA7 = 0; } while(0);
-
-
-        if (fRTX==1)
-        {
-            if (tempoRTX < 65000)
-                tempoRTX++;
-            if (tempoRTX >= TempoDeReplicacao)
-            {
-                fRTX=0;
-                do { LATAbits.LATA6 = 0; } while(0);
-                TX_Lora();
-                __nop();
-
-                SM_CFOFF();
-                __nop();
-                SM_CFOFF();
-                SM_CONFIGRADIO(22);
-                SM_MODORX(22);
-                SM_CFOFF();
-                SM_CONFIGRADIO(22);
-                SM_MODORX(22);
-                __nop();
-                indice=0;
-                tempoRTX=0;
-                cicloLED=13000;
-            }
-        }
-
-
-        if (fRetLora==99)
-        {
-            __nop();
-            fRetLora=0;
-        }
-        if (fRetLora==1)
-        {
-            fRetLora=0;
-            fComandoSirene=0;
-            indice=0;
-
-            ENDERECO = 9132;
-
-            __nop();
-
-            endereco_M = (uint8_t)(ENDERECO/1000);
-            temp16 = ENDERECO%1000;
-            endereco_C = (uint8_t)(temp16/100);
-            temp16 = temp16%100;
-            endereco_D = (uint8_t)(temp16/10);
-            endereco_U = (uint8_t)(temp16%10);
-
-            OFFSET = ENDERECO-9000;
-            __nop();
-            switch (endereco_U)
-            {
-                case 1:
-                case 6:
-                    TempoDeReplicacao = 3;
-                    break;
-                case 2:
-                case 7:
-                    TempoDeReplicacao = 5;
-                    break;
-                case 3:
-                case 8:
-                    TempoDeReplicacao = 7;
-                    break;
-                case 4:
-                case 9:
-                    TempoDeReplicacao = 9;
-                    break;
-                case 5:
-                case 0:
-                    TempoDeReplicacao = 11;
-                    break;
-                default:
-                    TempoDeReplicacao = 4;
-                    break;
-            }
-            TempoDeReplicacao *= 1000;
-
-            ENDERECO -= OFFSET;
-            endereco.end16 = ENDERECO;
-            offset.end16 = OFFSET;
-            __nop();
-
-            M_EnderecoRecebido = DadosLora[4]-48;
-            C_EnderecoRecebido = DadosLora[5]-48;
-            D_EnderecoRecebido = DadosLora[6]-48;
-            U_EnderecoRecebido = DadosLora[7]-48;
-            __nop();
-            enderecoRecebido = M_EnderecoRecebido*1000;
-            enderecoRecebido += C_EnderecoRecebido*100;
-            enderecoRecebido += D_EnderecoRecebido*10;
-            enderecoRecebido += U_EnderecoRecebido;
-            __nop();
-
-            pacoteTRX[ 0] = DadosLora[ 2];
-            pacoteTRX[ 1] = DadosLora[ 3];
-            pacoteTRX[ 2] = DadosLora[ 4];
-            pacoteTRX[ 3] = DadosLora[ 5];
-            pacoteTRX[ 4] = DadosLora[ 6];
-            pacoteTRX[ 5] = DadosLora[ 7];
-            pacoteTRX[ 6] = DadosLora[ 8];
-            pacoteTRX[ 7] = DadosLora[ 9];
-            pacoteTRX[ 8] = DadosLora[10];
-            pacoteTRX[ 9] = DadosLora[11];
-            pacoteTRX[10] = DadosLora[12];
-            pacoteTRX[11] = DadosLora[13];
-            pacoteTRX[12] = DadosLora[14];
-            pacoteTRX[13] = 'F';
-
-            if (DadosLora[15]=='F')
-            {
-
-                do { LATAbits.LATA6 = 1; } while(0); _delay((unsigned long)((50)*(16000000/4000.0))); do { LATAbits.LATA6 = 0; } while(0); _delay((unsigned long)((50)*(16000000/4000.0)));
-                do { LATAbits.LATA6 = 1; } while(0); _delay((unsigned long)((50)*(16000000/4000.0))); do { LATAbits.LATA6 = 0; } while(0);
-
-            }
-            __nop();
-
-
-            if ( enderecoRecebido == endereco.end16 )
-                fComandoSirene=1;
-
-
-            endereco.end16 += offset.end16;
-            if ( enderecoRecebido == endereco.end16 )
-                fComandoSirene=1;
-
-            if (fComandoSirene)
-            {
-                __nop();
-                fComandoSirene=0;
-                passagem=0;
-
-                if ( (DadosLora[ 8] == '1')&&(DadosLora[ 9] == '1')&&
-                     (DadosLora[10] == '2')&&(DadosLora[11] == '2')&&
-                     (DadosLora[12] == '3')&&(DadosLora[13] == '3') )
-                {
-                    if (fLigado==0)
-                    {
-                        __nop();
-                        fLigado = 1;
-                        fRTX=1;
-                        do { LATAbits.LATA6 = 1; } while(0);
-                        cicloLED=0;
-                        tempoRTX=0;
-                        do { LATAbits.LATA0 = 1; } while(0);
-                    }
-                    else
-                        contaRTX=1;
-                }
-
-                if ( (DadosLora[ 8] == '4')&&(DadosLora[ 9] == '4')&&
-                     (DadosLora[10] == '5')&&(DadosLora[11] == '5')&&
-                     (DadosLora[12] == '6')&&(DadosLora[13] == '6') )
-                {
-                    if (fLigado==1)
-                    {
-                        __nop();
-                        fLigado=0;
-                        fRTX=1;
-                        do { LATAbits.LATA6 = 1; } while(0);
-                        cicloLED=0;
-                        tempoRTX=0;
-                        do { LATAbits.LATA0 = 0; } while(0);
-                    }
-                    else
-                        contaRTX=2;
-                }
-            }
-
-            SM_CFOFF();
-            SM_CONFIGRADIO(22);
-            SM_MODORX(22);
-            SM_CFOFF();
-            SM_CONFIGRADIO(22);
-            SM_MODORX(22);
-            __nop();
-        }
-    }
-}
-
-
-
-
-__asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "'9'" "," "'8'" "," "'7'" "," "'6'" "," "2" "," "1" "," "54" "," "55");
-
-__asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "52" "," "51" "," "51" "," "50" "," "71" "," "71" "," "70" "," "70");
-
-__asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "14" "," "212" "," "57" "," "111" "," "21" "," "8" "," "11" "," "27");
-__asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "11" "," "222" "," "4" "," "0" "," "0" "," "85" "," "36" "," "232");
-__asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "89" "," "189" "," "9" "," "8" "," "43" "," "243" "," "42" "," "31");
-__asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "21" "," "0" "," "1" "," "2" "," "3" "," "4" "," "5" "," "6");
-__asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "56" "," "55" "," "55" "," "54" "," "68" "," "68" "," "68" "," "67");
-__asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "'V'" "," "'I'" "," "'D'" "," "'A'" "," "'L'" "," "37" "," "37" "," "0");

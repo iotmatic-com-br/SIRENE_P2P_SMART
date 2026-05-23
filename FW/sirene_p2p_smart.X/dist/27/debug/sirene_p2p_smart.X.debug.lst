@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V3.10 build 20250813170317 
-                                                                                               Sat May 23 14:08:11 2026
+                                                                                               Sun Apr 26 12:47:25 2026
 
 Microchip MPLAB XC8 C Compiler v3.10 (Free license) build 20250813170317 Og1 
      1                           	processor	16F1827
@@ -2624,8 +2624,8 @@ Microchip MPLAB XC8 C Compiler v3.10 (Free license) build 20250813170317 Og1
   2609     01E9  01FD               	clrf	_indice	;volatile
   2610     01EA                     l3172:
   2611                           
-  2612                           ;main.c: 458:             ENDERECO = 9132;
-  2613     01EA  30AC               	movlw	172
+  2612                           ;main.c: 458:             ENDERECO = 9110;
+  2613     01EA  3096               	movlw	150
   2614     01EB  00E4               	movwf	_ENDERECO^(0+256)
   2615     01EC  3023               	movlw	35
   2616     01ED  00E5               	movwf	(_ENDERECO^(0+256)+1)
@@ -3755,8 +3755,8 @@ Microchip MPLAB XC8 C Compiler v3.10 (Free license) build 20250813170317 Og1
   3736     0473  0000               	nop
   3737     0474                     l2862:
   3738                           
-  3739                           ;main.c: 274:     ENDERECO = 9132;
-  3740     0474  30AC               	movlw	172
+  3739                           ;main.c: 274:     ENDERECO = 9110;
+  3740     0474  3096               	movlw	150
   3741     0475  0022               	movlb	2	; select bank2
   3742     0476  00E4               	movwf	_ENDERECO^(0+256)
   3743     0477  3023               	movlw	35
@@ -7388,7 +7388,7 @@ Auto Spaces:
     BANK1            80      0      80
     BANK2            80      0      80
     BANK3            80      0      80
-    BANK4            48      0      27
+    BANK4            32      0      27
 
 Pointer List with Targets:
 
@@ -7707,20 +7707,20 @@ BITBANK0            80      0       0      0.0%
 BITBANK1            80      0       0      0.0%
 BITBANK2            80      0       0      0.0%
 BITBANK3            80      0       0      0.0%
-BITBANK4            48      0       0      0.0%
-BIGRAM             368      0       0      0.0%
+BITBANK4            32      0       0      0.0%
+BIGRAM             352      0       0      0.0%
 COMMON              14     11      14    100.0%
 BANK0               80      0      80    100.0%
 BANK1               80      0      80    100.0%
 BANK2               80      0      80    100.0%
 BANK3               80      0      80    100.0%
-BANK4               48      0      27     56.2%
+BANK4               32      0      27     84.4%
 STACK                0      0       0      0.0%
 DATA                 0      0     361      0.0%
 
 
 Microchip Technology PIC Macro Assembler V3.10 build 20250813170317 
-Symbol Table                                                                                   Sat May 23 14:08:11 2026
+Symbol Table                                                                                   Sun Apr 26 12:47:25 2026
 
                 ?_EUSART_SetRxInterruptHandler 0070                                             l14 0DD0  
                                            l17 0DA5                                             _ID 00DA  

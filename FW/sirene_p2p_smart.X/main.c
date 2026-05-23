@@ -19,7 +19,7 @@
 //
 ////    _____________________Vgit                                       07/04/26
 //
-#define     __ENDERECO_DESTE_MODULO__       9060 // ULTIMO GRAVADO 30/10/25
+#define     __ENDERECO_DESTE_MODULO__       9132  // 9110 ULTIMO GRAVADO 26/04/25
 //
 //###  ###  ###  ###  ###  ###  ###  ###  ###  ###  ###  ###  ###  ###  
 ////////////////////////////////////////////////////////////////////////////////
@@ -98,7 +98,7 @@ union Data {
 volatile uint8_t     endereco_M,endereco_C,endereco_D,endereco_U;
 
 #define     bp              __nop()
-#define     K_Toff          (20*60000)      // 20 min
+#define     K_Toff          1200000     // 1.200.000 MS = 20 min
 #define     K_SegsFlash     5000
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -403,8 +403,9 @@ void main(void)
         {
 #ifdef indicaACverm
             VMon;
-#endif            
-            if (jp4FEC) passagem++;
+#endif       
+//            if (jp4FEC) 
+                passagem++;
             if (passagem>K_Toff) 
             {
                 passagem=K_Toff;
@@ -610,7 +611,7 @@ __EEPROM_DATA(   11,222,  4,  0,  0, 85, 36,232 );  //  24
 __EEPROM_DATA(   89,189,  9,  8, 43,243, 42, 31 );  //  32 
 __EEPROM_DATA(   21,  0,  1,  2,  3,  4,  5,  6 );  //  40 
 __EEPROM_DATA(   56, 55, 55, 54, 68, 68, 68, 67 );  //  48 
-__EEPROM_DATA(   91, 90, 90, 89, 38, 37, 37,  0 );  //  56--63
+__EEPROM_DATA(   'V', 'I', 'D', 'A', 'L', 37, 37,  0 );  //  56--63
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
