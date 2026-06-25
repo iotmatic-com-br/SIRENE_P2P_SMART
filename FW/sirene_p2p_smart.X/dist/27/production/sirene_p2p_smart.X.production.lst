@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V3.10 build 20250813170317 
-                                                                                               Sat May 23 15:22:14 2026
+                                                                                               Thu Jun 25 15:00:00 2026
 
 Microchip MPLAB XC8 C Compiler v3.10 (Free license) build 20250813170317 Og1 
      1                           	processor	16F1827
@@ -2624,10 +2624,10 @@ Microchip MPLAB XC8 C Compiler v3.10 (Free license) build 20250813170317 Og1
   2609     01E9  01FD               	clrf	_indice	;volatile
   2610     01EA                     l3172:
   2611                           
-  2612                           ;main.c: 458:             ENDERECO = 9133;
-  2613     01EA  30AD               	movlw	173
+  2612                           ;main.c: 458:             ENDERECO = 9250;
+  2613     01EA  3022               	movlw	34
   2614     01EB  00E4               	movwf	_ENDERECO^(0+256)
-  2615     01EC  3023               	movlw	35
+  2615     01EC  3024               	movlw	36
   2616     01ED  00E5               	movwf	(_ENDERECO^(0+256)+1)
   2617     01EE                     l3174:
   2618                           
@@ -3755,11 +3755,11 @@ Microchip MPLAB XC8 C Compiler v3.10 (Free license) build 20250813170317 Og1
   3736     0473  0000               	nop
   3737     0474                     l2862:
   3738                           
-  3739                           ;main.c: 274:     ENDERECO = 9133;
-  3740     0474  30AD               	movlw	173
+  3739                           ;main.c: 274:     ENDERECO = 9250;
+  3740     0474  3022               	movlw	34
   3741     0475  0022               	movlb	2	; select bank2
   3742     0476  00E4               	movwf	_ENDERECO^(0+256)
-  3743     0477  3023               	movlw	35
+  3743     0477  3024               	movlw	36
   3744     0478  00E5               	movwf	(_ENDERECO^(0+256)+1)
   3745     0479                     l2864:
   3746                           
@@ -7720,7 +7720,7 @@ DATA                 0      0     361      0.0%
 
 
 Microchip Technology PIC Macro Assembler V3.10 build 20250813170317 
-Symbol Table                                                                                   Sat May 23 15:22:14 2026
+Symbol Table                                                                                   Thu Jun 25 15:00:00 2026
 
                 ?_EUSART_SetRxInterruptHandler 0070                                             l14 0DD0  
                                            l17 0DA5                                             _ID 00DA  
